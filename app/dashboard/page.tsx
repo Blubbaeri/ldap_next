@@ -25,7 +25,7 @@ function DashboardContent() {
         <div className="flex justify-center items-center min-h-screen bg-gray-50">
             <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md text-center border border-gray-200">
                 <h1 className="text-3xl font-semibold text-indigo-600 mb-6">
-                    Selamat Datang di Dashboard 👋
+                    Selamat Datang di Dashboard 
                 </h1>
 
                 {/* tampilkan profile jika login lewat Google */}
@@ -61,7 +61,6 @@ function DashboardContent() {
 }
 
 export default function DashboardPage() {
-    // Bungkus dengan Suspense supaya aman pas build
     return (
         <Suspense
             fallback={
