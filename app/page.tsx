@@ -16,20 +16,8 @@ export default function LoginPage() {
         setLoading(true);
         setMessage("");
 
-        const getBaseURL = () => {
-            if (process.env.NEXT_PUBLIC_API_URL) return process.env.NEXT_PUBLIC_API_URL;
-            if (typeof window !== "undefined") {
-                const protocol = window.location.protocol;
-                const host = window.location.hostname;
-                return `${protocol}//${host}:8000`;
-            }
-            return "http://localhost:8000";
-        };
-
         try {
-            const baseURL = getBaseURL();
-
-            const res = await fetch(`${baseURL}/login-ldap`, {
+            const res = await fetch("http://192.168.100.5:8000/login-ldap", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams({ username, password }),
