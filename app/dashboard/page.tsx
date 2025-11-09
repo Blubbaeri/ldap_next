@@ -12,12 +12,15 @@ export default function DashboardPage() {
 
     useEffect(() => {
         const source = searchParams.get("source");
-        if (source === "google") {
-            setLoginSource("Google OAuth");
-        } else {
-            setLoginSource("LDAP");
-        }
+        setTimeout(() => {
+            if (source === "google") {
+                setLoginSource("Google OAuth");
+            } else {
+                setLoginSource("LDAP");
+            }
+        }, 0);
     }, [searchParams]);
+
 
     const handleLogout = () => {
         if (loginSource === "Google OAuth") {
