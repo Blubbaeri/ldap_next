@@ -29,7 +29,7 @@ export default function LoginPage() {
 
             if (data.status === "success") {
                 setMessage(`Login berhasil! Selamat datang, ${data.user}`);
-                setTimeout(() => router.push("/dashboard?source=ldap"), 2000);
+                setTimeout(() => router.push("/dashboard?source=ldap"), 1200);
             } else {
                 setMessage("Login gagal! Periksa username atau password.");
             }
