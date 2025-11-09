@@ -18,6 +18,7 @@ function DashboardContent() {
                 setLoginSource("Login melalui LDAP");
             }
         }, 0);
+
         return () => clearTimeout(timer);
     }, [searchParams]);
 
@@ -26,8 +27,8 @@ function DashboardContent() {
             <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md text-center border border-gray-100">
                 <h1 className="text-3xl font-bold text-indigo-600 mb-2">Dashboard</h1>
                 <p className="text-gray-600 mb-6">
-                    {loginSource ? loginSource : "Sedang memuat..."}
-                </p>
+                {loginSource ? loginSource : "Sedang memuat..."}
+            </p>
 
                 {/* Kalau login pakai Google dan session ada */}
                 {loginSource === "Login melalui Google OAuth" && session?.user && (
@@ -50,12 +51,13 @@ function DashboardContent() {
                 >
                     Logout
                 </button>
-            </div>
+        </div>
         </div>
     );
 }
 
 export default function DashboardPage() {
+    // 🔒 Bungkus komponen yang pakai useSearchParams di dalam Suspense
     return (
         <Suspense
             fallback={
