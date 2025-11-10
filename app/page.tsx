@@ -17,12 +17,15 @@ export default function LoginPage() {
         setMessage("");
 
         try {
-            const res = await fetch("http://192.168.100.5:8000/login-ldap", {
+            const baseURL = `http://${window.location.hostname}:8000`;
+
+            const res = await fetch(`${baseURL}/login-ldap`, {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams({ username, password }),
                 mode: "cors",
             });
+
 
             if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
             const data = await res.json();
